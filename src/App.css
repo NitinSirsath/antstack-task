@@ -1,38 +1,34 @@
-.App {
-  text-align: center;
+input[type="date"]:required:invalid::-webkit-datetime-edit {
+	color: transparent;
+}
+input[type="date"]:focus::-webkit-datetime-edit {
+	color: black !important;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form {
+	width: fit-content;
+	padding: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input_table_style {
+	width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.label_table-style {
+	flex: 0.5;
 }
 
-.App-link {
-  color: #61dafb;
+.input_field_style {
+	flex: 0.5;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contact_field_container {
+	width: 800px;
 }
