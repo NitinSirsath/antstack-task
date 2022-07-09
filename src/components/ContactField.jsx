@@ -53,7 +53,7 @@ const ContactField = ({ contactData, setContactData, intialContact }) => {
 		<div className='input_field_style gap-3 '>
 			{contactData.map((contact, idx) => {
 				return (
-					<div className='d-flex gap-3 contact_field' key={idx}>
+					<div className='d-flex contact_field' key={idx}>
 						<select
 							name='type'
 							value={contact.type}

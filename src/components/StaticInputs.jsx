@@ -9,7 +9,7 @@ const StaticInputs = ({
 	errorMessage,
 }) => {
 	return (
-		<div className='d-flex input_field_style'>
+		<div className='d-flex input_field_style '>
 			<div className='d-flex flex-column'>
 				<input
 					type={type}

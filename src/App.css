@@ -1,87 +1,37 @@
-::-webkit-datetime-edit-year-field:not([aria-valuenow]),
-::-webkit-datetime-edit-month-field:not([aria-valuenow]),
-::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
-	color: transparent;
+.form {
+	margin: 10px 8px;
+	padding: 12px;
 }
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	margin: 0;
+.input_table_style {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+.label_table-style {
+	display: inline-block;
 }
 
-@media only screen and (max-width: 600px) {
-	.main_form_container_mobile {
-		flex-direction: row;
+.contact_field {
+	gap: 1px;
+}
+
+@media only screen and (min-width: 768px) {
+	.form {
+		margin: 32px 164px;
+		padding: 30px;
+		align-items: center;
+		width: auto;
 	}
 	.input_table_style {
-		flex-direction: column;
+		justify-content: flex-start;
+
+		flex-direction: row;
 	}
 	.contact_field {
-		flex-direction: column;
-		max-width: 250px;
+		gap: 5px;
 	}
-}
-
-.form {
-	/* width: fit-content; */
-	padding: 30px;
-	width: 80%;
-	margin: 30px auto;
-}
-
-.input_table_style {
-	width: 100%;
-}
-
-.label_table-style {
-	flex: 0.5;
-}
-
-.input_field_style {
-	flex: 0.5;
-}
-
-.contact_field_container {
-	width: 800px;
-}
-li {
-	list-style: none;
-}
-
-.delete_button {
-	background-color: #fff;
-	color: #000;
-	border-radius: 50%;
-	/* height: 12px; */
-	font-size: 10px;
-	padding: 1px 3px;
-	display: grid;
-	place-items: center;
-	cursor: pointer;
-}
-
-.chip {
-	display: flex;
-	gap: 5px;
-	align-items: center;
-	background-color: #828282;
-	border-radius: 2px;
-	color: #fff;
-	width: fit-content;
-	padding: 5px 5px 5px 5px;
-}
-
-.skills_list {
-	display: grid;
-	gap: 3px;
-	padding: 0;
-	margin: 0;
-	/* grid-template-columns: repeat(auto-fit, 1fr); */
-	grid-template-columns: repeat(5, 1fr);
-}
-.App {
-	height: 100vh;
-	width: 100vw;
+	.label_table-style {
+		display: block;
+		width: 400px;
+	}
 }
