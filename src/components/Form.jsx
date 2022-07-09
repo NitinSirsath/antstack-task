@@ -19,19 +19,10 @@ const Form = () => {
 		number: "",
 	};
 
-	// const formDataObject = {
-	// 	name: "",
-	// 	designation: "",
-	// 	contacts: [],
-	// 	skills: [],
-	// 	dob: "",
-	// };
-
 	const [staticValues, setStaticValues] = useState(initialValues);
 	const [contactData, setContactData] = useState([intialContact]);
 	const [skillData, setSkillData] = useState([]);
 	const [birthDate, setBirthDate] = useState();
-	// const [formData, setFormData] = useState(formDataObject);
 	const [employeeData, setEmployeeData] = useState([]);
 
 	const [staticValuesValidation, setStaticValuesValidation] = useState(false);
@@ -50,19 +41,14 @@ const Form = () => {
 				skills: [...skillData],
 				dob: birthDate,
 			};
-			// let personData = [...staticValues, ...contactData, ...skillData];
-			console.log(staticValues, contactData, skillData, birthDate);
-			// setFormData(tempObject);
+
 			setEmployeeData([...employeeData, tempObject]);
 
-			console.log([...employeeData, tempObject], "data");
-			// console.log(formData, "finaldata");
 			setBirthDate("");
 			setContactData([intialContact]);
 			setSkillData([]);
 			setStaticValuesValidation(false);
 			setStaticValues(initialValues);
-			// setData(...staticValues);
 		} else {
 			setStaticValuesValidation(!staticValuesValidation);
 		}
@@ -148,11 +134,6 @@ const Form = () => {
 					</button>
 				</div>
 			</form>
-			{/* <AddEmployee
-				employeeData={employeeData}
-				formData={formData}
-				setEmployeeData={setEmployeeData}
-			/> */}
 
 			<div>
 				<ViewData employeeData={employeeData} />

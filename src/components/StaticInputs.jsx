@@ -5,8 +5,7 @@ const StaticInputs = ({
 	staticValues,
 	name,
 	handleChange,
-	// staticValuesValidation,
-	// errorMessage,
+
 	required,
 }) => {
 	return (
@@ -19,11 +18,6 @@ const StaticInputs = ({
 					onChange={handleChange}
 					required={required}
 				/>
-				{/* {staticValuesValidation ? (
-					<span className='text-danger'>{errorMessage}</span>
-				) : (
-					""
-				)} */}
 			</div>
 		</div>
 	);

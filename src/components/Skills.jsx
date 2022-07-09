@@ -3,7 +3,6 @@ import AddButton from "./AddButton";
 
 const Skills = ({ skillData, setSkillData }) => {
 	const [skillVal, setSkillVal] = useState("");
-	// const [skillData, setSkillData] = useState([]);
 
 	const handleSkillChange = (e) => {
 		setSkillVal((prevVal) => (prevVal = e.target.value));
@@ -13,15 +12,12 @@ const Skills = ({ skillData, setSkillData }) => {
 			setSkillData([...skillData, val]);
 			setSkillVal("");
 		}
-		console.log("run skills");
 	};
 	const deleteSkill = (i) => {
 		const list = [...skillData];
 		list.splice(i, 1);
 		setSkillData(list);
 	};
-
-	// console.log(skillData);
 
 	return (
 		<div className='d-flex flex-column input_field_style gap-3'>

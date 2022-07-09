@@ -2,14 +2,11 @@ import React from "react";
 import { useState } from "react";
 import AddButton from "./AddButton";
 
-const ContactField = ({ contactData, setContactData, intialContact }) => {
-	// const [contactData, setContactData] = useState([intialValue]);
+const ContactField = ({ contactData, setContactData }) => {
 	const [validation, setValidation] = useState(true);
 
 	const handleContactChange = (e, idx) => {
 		const listData = [...contactData];
-		// console.log(contactData, "contactc");
-		// console.log(listData[idx].number);
 
 		listData[idx].number = e.target.value;
 		setContactData(listData);
@@ -18,7 +15,7 @@ const ContactField = ({ contactData, setContactData, intialContact }) => {
 	const handleTypeChange = (e, idx) => {
 		const listData = [...contactData];
 		listData[idx].type = e.target.value;
-		// listData[idx].number = listData[idx].number || "";
+
 		setContactData(listData);
 	};
 
@@ -31,17 +28,9 @@ const ContactField = ({ contactData, setContactData, intialContact }) => {
 			};
 
 			setContactData([...contactData, dataContact]);
-
-			console.log(contactData);
 		} else {
 			setValidation(false);
 		}
-		// const dataContact = {
-		// 	type: contactData.type,
-		// 	number: contactData.number,
-		// };
-		// console.log(contactData[idx].number.length);
-		// setContactData([...contactData, dataContact]);
 	};
 	const deleteContact = (idx) => {
 		const list = [...contactData];
