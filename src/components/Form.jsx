@@ -1,28 +1,45 @@
 import React from "react";
 import { useState } from "react";
 import ContactField from "./ContactField";
+import DateInput from "./DateInput";
 import Skills from "./Skills";
 import StaticInputs from "./StaticInputs";
 import ViewData from "./ViewData";
 
 const Form = () => {
 	const initialValues = {
-		first: "",
+		name: "",
 		designation: "",
 	};
+
+	const intialContact = {
+		type: "",
+		number: "",
+	};
+
 	const [staticValues, setStaticValues] = useState(initialValues);
+	const [contactData, setContactData] = useState([intialContact]);
+	const [skillData, setSkillData] = useState([]);
+	const [date, setDate] = useState();
 
 	const handleChange = (e) => {
 		setStaticValues({ ...staticValues, [e.target.name]: e.target.value });
 	};
 
-	const handleAdd = (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
+		// let personData = [...staticValues, ...contactData, ...skillData];
+		// ...date,
+		console.log("run submit");
+		// setData(...staticValues);
+		setStaticValues(initialValues);
+		setContactData(intialContact);
+		console.log(staticValues, contactData, skillData, date);
 	};
 	return (
 		<>
-			<form onSubmit={handleAdd}>
-				<div className='container border border-dark form'>
+			<form onSubmit={handleSubmit}>
+				<div className='container border bg-light border-dark form'>
 					<div className='d-flex flex-column gap-3'>
 						<div className='d-flex input_table_style'>
 							<label className='label_table-style' htmlFor=''>
@@ -53,31 +70,29 @@ const Form = () => {
 							<label className='label_table-style ' htmlFor=''>
 								Contact Details
 							</label>
-							<ContactField />
+							<ContactField
+								contactData={contactData}
+								setContactData={setContactData}
+								intialContact={intialContact}
+							/>
 						</div>
 						<div className='d-flex input_table_style'>
 							<label className='label_table-style' htmlFor=''>
 								Skills
 							</label>
-							<Skills />
+							<Skills skillData={skillData} setSkillData={setSkillData} />
 						</div>
 						<div className='d-flex input_table_style'>
 							<label className='label_table-style' htmlFor=''>
 								Date of Birth
 							</label>
-							<StaticInputs
-								// staticValues={staticValues.dob}
-								type={"date"}
-								label={"Date of Birth"}
-								handleChange={handleChange}
-								name={"date"}
-							/>
+							<DateInput date={date} setDate={setDate} />
 						</div>
 					</div>
 				</div>
 				<div className='d-flex justify-content-center m-3'>
 					<button type='submit' className='p-2 bg-secondary text-white'>
-						Add Employee
+						Submit
 					</button>
 				</div>
 			</form>
