@@ -5,8 +5,9 @@ const StaticInputs = ({
 	staticValues,
 	name,
 	handleChange,
-	staticValuesValidation,
-	errorMessage,
+	// staticValuesValidation,
+	// errorMessage,
+	required,
 }) => {
 	return (
 		<div className='d-flex input_field_style '>
@@ -16,12 +17,13 @@ const StaticInputs = ({
 					value={staticValues}
 					name={name}
 					onChange={handleChange}
+					required={required}
 				/>
-				{staticValuesValidation ? (
+				{/* {staticValuesValidation ? (
 					<span className='text-danger'>{errorMessage}</span>
 				) : (
 					""
-				)}
+				)} */}
 			</div>
 		</div>
 	);

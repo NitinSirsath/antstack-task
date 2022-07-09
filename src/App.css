@@ -1,3 +1,10 @@
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
 .form {
 	margin: 10px 8px;
 	padding: 12px;
@@ -13,6 +20,38 @@
 
 .contact_field {
 	gap: 1px;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+.chip {
+	display: flex;
+	gap: 5px;
+	align-items: center;
+	background-color: #828282;
+	color: #fff;
+	border-radius: 2px;
+	width: fit-content;
+	padding: 5px 5px 5px 5px;
+}
+
+.delete_button {
+	background-color: #fff;
+	color: #000;
+	border-radius: 50%;
+	/* height: 12px; */
+	font-size: 10px;
+	padding: 1px 3px;
+
+	display: grid;
+	place-items: center;
+	cursor: pointer;
+}
+.number_input {
+	width: 15ch;
 }
 
 @media only screen and (min-width: 768px) {

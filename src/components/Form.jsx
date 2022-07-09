@@ -99,6 +99,7 @@ const Form = () => {
 								name={"name"}
 								staticValuesValidation={staticValuesValidation}
 								errorMessage={"Please enter your name"}
+								required
 							/>
 						</div>
 
@@ -114,6 +115,7 @@ const Form = () => {
 								name={"designation"}
 								staticValuesValidation={staticValuesValidation}
 								errorMessage={"Please enter your designation"}
+								required
 							/>
 						</div>
 						<div className='d-flex input_table_style contact_field_container'>
@@ -153,7 +155,7 @@ const Form = () => {
 			/> */}
 
 			<div>
-				<ViewData />
+				<ViewData employeeData={employeeData} />
 				<Download exportData={exportData} />
 			</div>
 		</>

@@ -55,6 +55,7 @@ const ContactField = ({ contactData, setContactData, intialContact }) => {
 				return (
 					<div className='d-flex contact_field' key={idx}>
 						<select
+							required
 							name='type'
 							value={contact.type}
 							onChange={(e) => handleTypeChange(e, idx)}
@@ -67,8 +68,12 @@ const ContactField = ({ contactData, setContactData, intialContact }) => {
 						</select>
 						<div className='d-flex'>
 							<input
+								className='number_input'
+								required={idx === 0}
 								name='number'
 								type='number'
+								min='6000000000'
+								max='9999999999'
 								value={contact.number || ""}
 								placeholder='Phone Number'
 								onChange={(e) => handleContactChange(e, idx)}
