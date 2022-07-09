@@ -15,11 +15,20 @@ input[type="number"]::-webkit-outer-spin-button {
 	.main_form_container_mobile {
 		flex-direction: row;
 	}
+	.input_table_style {
+		flex-direction: column;
+	}
+	.contact_field {
+		flex-direction: column;
+		max-width: 250px;
+	}
 }
 
 .form {
-	width: fit-content;
+	/* width: fit-content; */
 	padding: 30px;
+	width: 80%;
+	margin: 30px auto;
 }
 
 .input_table_style {
@@ -71,4 +80,8 @@ li {
 	margin: 0;
 	/* grid-template-columns: repeat(auto-fit, 1fr); */
 	grid-template-columns: repeat(5, 1fr);
+}
+.App {
+	height: 100vh;
+	width: 100vw;
 }

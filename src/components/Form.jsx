@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import AddEmployee from "./AddEmployee";
+
 import ContactField from "./ContactField";
 import DateInput from "./DateInput";
 import Download from "./Download";
@@ -19,13 +19,13 @@ const Form = () => {
 		number: "",
 	};
 
-	const formDataObject = {
-		name: "",
-		designation: "",
-		contacts: [],
-		skills: [],
-		dob: "",
-	};
+	// const formDataObject = {
+	// 	name: "",
+	// 	designation: "",
+	// 	contacts: [],
+	// 	skills: [],
+	// 	dob: "",
+	// };
 
 	const [staticValues, setStaticValues] = useState(initialValues);
 	const [contactData, setContactData] = useState([intialContact]);
@@ -81,7 +81,7 @@ const Form = () => {
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
-				<div className='container border bg-light border-dark form'>
+				<div className='border bg-light border-dark form'>
 					<span className=' bg-secondary text-white p-1 rounded'>
 						Employee # {employeeNumber + 1}
 					</span>

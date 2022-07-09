@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 
 const DateInput = ({ date, setDate }) => {
 	// const [date, setDate] = useState();
