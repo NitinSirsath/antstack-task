@@ -3,6 +3,7 @@ import { useState } from "react";
 import AddEmployee from "./AddEmployee";
 import ContactField from "./ContactField";
 import DateInput from "./DateInput";
+import Download from "./Download";
 import Skills from "./Skills";
 import StaticInputs from "./StaticInputs";
 import ViewData from "./ViewData";
@@ -81,11 +82,11 @@ const Form = () => {
 		<>
 			<form onSubmit={handleSubmit}>
 				<div className='container border bg-light border-dark form'>
-					<span className='my-3 bg-secondary text-white p-1 rounded'>
-						# {employeeNumber + 1}
+					<span className=' bg-secondary text-white p-1 rounded'>
+						Employee # {employeeNumber + 1}
 					</span>
 
-					<div className='d-flex main_form_container_mobile flex-column gap-3'>
+					<div className='my-3 d-flex main_form_container_mobile flex-column gap-3'>
 						<div className='d-flex input_table_style'>
 							<label className='label_table-style' htmlFor='name'>
 								Name <span className='text-danger'> *</span>
@@ -150,10 +151,11 @@ const Form = () => {
 				formData={formData}
 				setEmployeeData={setEmployeeData}
 			/> */}
-			<ViewData />
-			<button type='button' onClick={exportData}>
-				Download
-			</button>
+
+			<div>
+				<ViewData />
+				<Download exportData={exportData} />
+			</div>
 		</>
 	);
 };
