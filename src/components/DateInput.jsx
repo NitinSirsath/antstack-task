@@ -9,7 +9,7 @@ const DateInput = ({ date, setDate }) => {
 		<div className='d-flex input_field_style'>
 			<input
 				type='date'
-				value={date}
+				value={date || ""}
 				onChange={(e) => setDate(e.target.value)}
 			/>
 		</div>

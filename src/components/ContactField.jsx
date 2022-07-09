@@ -4,6 +4,7 @@ import AddButton from "./AddButton";
 
 const ContactField = ({ contactData, setContactData, intialContact }) => {
 	// const [contactData, setContactData] = useState([intialValue]);
+	const [validation, setValidation] = useState(true);
 
 	const handleContactChange = (e, idx) => {
 		const listData = [...contactData];
@@ -21,14 +22,31 @@ const ContactField = ({ contactData, setContactData, intialContact }) => {
 		setContactData(listData);
 	};
 
-	const handleAdd = () => {
-		const dataContact = {
-			type: contactData.type,
-			number: contactData.number,
-		};
+	const handleAdd = (idx) => {
+		if (contactData[idx].number.length === 10) {
+			setValidation(true);
+			const dataContact = {
+				type: contactData.type,
+				number: contactData.number,
+			};
 
-		setContactData([...contactData, dataContact]);
-		console.log(contactData);
+			setContactData([...contactData, dataContact]);
+
+			console.log(contactData);
+		} else {
+			setValidation(false);
+		}
+		// const dataContact = {
+		// 	type: contactData.type,
+		// 	number: contactData.number,
+		// };
+		// console.log(contactData[idx].number.length);
+		// setContactData([...contactData, dataContact]);
+	};
+	const deleteContact = (idx) => {
+		const list = [...contactData];
+		list.splice(idx, 1);
+		setContactData(list);
 	};
 
 	return (
@@ -56,14 +74,22 @@ const ContactField = ({ contactData, setContactData, intialContact }) => {
 								onChange={(e) => handleContactChange(e, idx)}
 							/>
 						</div>
+						{contactData.length > 1 && (
+							<button onClick={() => deleteContact(idx)}>X</button>
+						)}
 						{contactData.length - 1 === idx && contactData.length < 4 && (
-							<button onClick={handleAdd}>
+							<button type='button' onClick={() => handleAdd(idx)}>
 								<AddButton />
 							</button>
 						)}
 					</div>
 				);
 			})}
+			{!validation ? (
+				<span className='text-danger'>enter 10 digit number</span>
+			) : (
+				""
+			)}
 		</div>
 	);
 };
