@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import AddEmployee from "./AddEmployee";
 import ContactField from "./ContactField";
 import DateInput from "./DateInput";
 import Skills from "./Skills";
@@ -29,7 +30,8 @@ const Form = () => {
 	const [contactData, setContactData] = useState([intialContact]);
 	const [skillData, setSkillData] = useState([]);
 	const [birthDate, setBirthDate] = useState();
-	const [formData, setFormData] = useState(formDataObject);
+	// const [formData, setFormData] = useState(formDataObject);
+	const [employeeData, setEmployeeData] = useState([]);
 
 	const [staticValuesValidation, setStaticValuesValidation] = useState(false);
 
@@ -40,16 +42,23 @@ const Form = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (staticValues.name && staticValues.designation) {
-			// let personData = [...staticValues, ...contactData, ...skillData];
-			// console.log(staticValues, contactData, skillData, date);
-			setFormData({
+			const tempObject = {
 				name: staticValues.name,
 				designation: staticValues.designation,
 				contacts: [...contactData],
 				skills: [...skillData],
 				dob: birthDate,
-			});
-			console.log(formData, "finaldata");
+			};
+			// let personData = [...staticValues, ...contactData, ...skillData];
+			console.log(staticValues, contactData, skillData, birthDate);
+			// setFormData(tempObject);
+			setEmployeeData([...employeeData, tempObject]);
+
+			console.log([...employeeData, tempObject], "data");
+			// console.log(formData, "finaldata");
+			setBirthDate("");
+			setContactData([intialContact]);
+			setSkillData([]);
 			setStaticValuesValidation(false);
 			setStaticValues(initialValues);
 			// setData(...staticValues);
@@ -57,13 +66,28 @@ const Form = () => {
 			setStaticValuesValidation(!staticValuesValidation);
 		}
 	};
+	const exportData = () => {
+		const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
+			JSON.stringify(employeeData)
+		)}`;
+		const link = document.createElement("a");
+		link.href = jsonString;
+		link.download = "EmployeeData.json";
+
+		link.click();
+	};
+	const employeeNumber = employeeData.length;
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
 				<div className='container border bg-light border-dark form'>
-					<div className='d-flex flex-column gap-3'>
+					<span className='my-3 bg-secondary text-white p-1 rounded'>
+						# {employeeNumber + 1}
+					</span>
+
+					<div className='d-flex main_form_container_mobile flex-column gap-3'>
 						<div className='d-flex input_table_style'>
-							<label className='label_table-style' htmlFor=''>
+							<label className='label_table-style' htmlFor='name'>
 								Name <span className='text-danger'> *</span>
 							</label>
 							<StaticInputs
@@ -78,7 +102,7 @@ const Form = () => {
 						</div>
 
 						<div className='d-flex input_table_style'>
-							<label className='label_table-style' htmlFor=''>
+							<label className='label_table-style' htmlFor='designation'>
 								Designation <span className='text-danger'> *</span>
 							</label>
 							<StaticInputs
@@ -117,11 +141,19 @@ const Form = () => {
 				</div>
 				<div className='d-flex justify-content-center m-3'>
 					<button type='submit' className='p-2 bg-secondary text-white'>
-						Submit
+						Add Employee
 					</button>
 				</div>
 			</form>
+			{/* <AddEmployee
+				employeeData={employeeData}
+				formData={formData}
+				setEmployeeData={setEmployeeData}
+			/> */}
 			<ViewData />
+			<button type='button' onClick={exportData}>
+				Download
+			</button>
 		</>
 	);
 };
